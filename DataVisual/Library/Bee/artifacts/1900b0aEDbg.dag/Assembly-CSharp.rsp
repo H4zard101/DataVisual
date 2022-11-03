@@ -360,7 +360,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
-"Assets/MeshGenerator.cs"
+"Assets/Script/MeshGenerator.cs"
 "Assets/Script/MoveOverlayToView.cs"
 "Assets/Script/ShowButtons.cs"
 "Assets/Script/ShowOverlay.cs"
