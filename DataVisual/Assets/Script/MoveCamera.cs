@@ -36,12 +36,16 @@ public class MoveCamera : MonoBehaviour
 
     public int cloudSpeed = 1;
     public bool move_Clouds = false;
+    public bool isShowing = false;
+
+    public static bool gameIsPaused = false;
     void Start()
     {
         startButton.gameObject.SetActive(false);
         pannel.SetActive(false);
         pausePannel.SetActive(false);
         move_Clouds = true;
+        StartCoroutine(showUi());
     }
 
     // Update is called once per frame
@@ -49,26 +53,55 @@ public class MoveCamera : MonoBehaviour
     {
         moveCamera();
         moveClouds();
+
     }
 
     private void Update()
     {
-        StartCoroutine(showUi());
+        if(isShowing)
+        {
+            startButton.gameObject.SetActive(true);
+            pannel.SetActive(true);
+        }
+        else if(!isShowing)
+        {
+            startButton.gameObject.SetActive(false);
+            pannel.SetActive(false);
+        }
         StartCoroutine(cloudDelay());
         StartCoroutine(cloudHidden());
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pausePannel.SetActive(true);
+
+            if(gameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+
         }
+    }
+
+    void Resume()
+    {
+        pausePannel.SetActive(false);
+        isShowing = true;
+        gameIsPaused = false;
+    }
+    void Pause()
+    {
+        pausePannel.SetActive(true);
+        isShowing = false;
+        gameIsPaused = true;
     }
     IEnumerator showUi()
     {
         yield return new WaitForSeconds(2f);
-
-        startButton.gameObject.SetActive(true);
-        pannel.SetActive(true);
-
+        isShowing = true;
     }
 
     void moveCamera()
