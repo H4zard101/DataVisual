@@ -10,7 +10,10 @@ public class MoveCamera : MonoBehaviour
     public Transform startPoint;
     public Transform endPoint;
     public float speed =1f;
+
     public Button startButton;
+    public GameObject pannel;
+    public GameObject pausePannel;
 
 
     public GameObject cloud1;
@@ -36,6 +39,8 @@ public class MoveCamera : MonoBehaviour
     void Start()
     {
         startButton.gameObject.SetActive(false);
+        pannel.SetActive(false);
+        pausePannel.SetActive(false);
         move_Clouds = true;
     }
 
@@ -48,14 +53,22 @@ public class MoveCamera : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(showButton());
+        StartCoroutine(showUi());
         StartCoroutine(cloudDelay());
         StartCoroutine(cloudHidden());
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            pausePannel.SetActive(true);
+        }
     }
-    IEnumerator showButton()
+    IEnumerator showUi()
     {
         yield return new WaitForSeconds(2f);
+
         startButton.gameObject.SetActive(true);
+        pannel.SetActive(true);
+
     }
 
     void moveCamera()
