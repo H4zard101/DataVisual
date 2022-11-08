@@ -5,54 +5,89 @@ using TMPro;
 using UnityEngine.UI;
 public class MoveCamera : MonoBehaviour
 {
-
+    // Camera
     public Camera camera;
     public Transform startPoint;
     public Transform endPoint;
-    public float speed =1f;
+    public float cameraSpeedMovingAway =1f;
+    public float cameraSpeedMovingIn = 1f;
+    public bool CameraForward = true;
 
+
+    // UI
     public Button startButton;
     public GameObject pannel;
     public GameObject pausePannel;
-
-
-    public GameObject cloud1;
-    public Transform cloud1StartPoint;
-    public Transform cloud1EndPoint;
-
-
-    public GameObject cloud2;
-    public Transform cloud2StartPoint;
-    public Transform cloud2EndPoint;
-
-    public GameObject cloud3;
-    public Transform cloud3StartPoint;
-    public Transform cloud3EndPoint;
-
-    public GameObject cloud4;
-    public Transform cloud4StartPoint;
-    public Transform cloud4EndPoint;
-
-
-    public int cloudSpeed = 1;
-    public bool move_Clouds = false;
     public bool isShowing = false;
-
     public static bool gameIsPaused = false;
+
+
+    // Clouds
+    public GameObject cloud1;
+    public GameObject cloud2;
+    public GameObject cloud3;
+    public GameObject cloud4;
+    public float cloudSpeed;
+
+    public bool cloudUpMove;
+    public bool cloudDownMove;
+    public bool cloudRightMove;
+    public bool cloudLeftMove;
+
+    public bool cloudUpMoveIn;
+    public bool cloudDownMoveIn;
+    public bool cloudRightMoveIn;
+    public bool cloudLeftMoveIn;
+
+    public bool switchScene;
+
+
+
+    // make sure the ui gets reset and the move out of the way
     void Start()
     {
         startButton.gameObject.SetActive(false);
         pannel.SetActive(false);
-        pausePannel.SetActive(false);
-        move_Clouds = true;
+        pausePannel.SetActive(false);       
         StartCoroutine(showUi());
+        CameraForward = true;
+        cloudUpMove = true;
+        cloudDownMove = true;
+        cloudRightMove = true;
+        cloudLeftMove = true;
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
-    {
-        moveCamera();
-        moveClouds();
+    { 
+        if(CameraForward)
+        {
+            cameraSpeedMovingIn = 0;
+            moveCameraBack();
+        }
+
+        if(!CameraForward)
+        {
+            cameraSpeedMovingAway = 0;
+            moveCameraForward();
+        }
+
+        if(CameraForward)
+        {
+            moveTopCloudAway();
+            moveBottomCloudAway();
+            moveRightCloudAway();
+            moveLeftCloudAway();
+        }
+
+        if(!CameraForward)
+        {
+            moveTopCloudBack();
+            moveBottomCloudBack();
+            moveRightCloudBack();
+            moveLeftCloudBack();
+        }
+
 
     }
 
@@ -63,17 +98,14 @@ public class MoveCamera : MonoBehaviour
             startButton.gameObject.SetActive(true);
             pannel.SetActive(true);
         }
+
         else if(!isShowing)
         {
             startButton.gameObject.SetActive(false);
             pannel.SetActive(false);
-        }
-        StartCoroutine(cloudDelay());
-        StartCoroutine(cloudHidden());
-
+        }    
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
             if(gameIsPaused)
             {
                 Resume();
@@ -82,59 +114,151 @@ public class MoveCamera : MonoBehaviour
             {
                 Pause();
             }
+        }
 
+        if(switchScene)
+        {
+            StartCoroutine(NextScene());
         }
     }
 
+    public void moveTopCloudAway()
+    {
+        if(cloudUpMove)
+        {
+            cloud3.transform.Translate(-Vector3.forward * cloudSpeed * Time.deltaTime);
+        }
+
+        if(cloud3.transform.position.x >= 15.0F)
+        {
+            cloudUpMove = false;
+        }
+    }
+    public void moveBottomCloudAway()
+    {
+        if (cloudDownMove)
+        {
+            cloud4.transform.Translate(-Vector3.forward * cloudSpeed * Time.deltaTime);
+        }
+
+        if (cloud4.transform.position.x <= -15.0F)
+        {
+            cloudDownMove = false;
+        }
+    }
+    public void moveRightCloudAway()
+    {
+        if (cloudRightMove)
+        {
+            cloud1.transform.Translate(-Vector3.forward * cloudSpeed * Time.deltaTime);
+        }
+
+        if (cloud1.transform.position.z <= -15.0F)
+        {
+            cloudRightMove = false;
+        }
+    }
+    public void moveLeftCloudAway()
+    {
+        if (cloudLeftMove)
+        {
+            cloud2.transform.Translate(-Vector3.forward * cloudSpeed * Time.deltaTime);
+        }
+
+        if (cloud2.transform.position.z >= 15.0F)
+        {
+            cloudLeftMove = false;
+        }
+    }
+
+    public void moveTopCloudBack()
+    {
+        if (cloudUpMoveIn)
+        {
+            cloud4.transform.Translate(Vector3.forward * cloudSpeed * Time.deltaTime);
+        }
+
+        if (cloud4.transform.position.x >= -0.51)
+        {
+            cloudUpMoveIn = false;
+        }
+    }
+    public void moveBottomCloudBack()
+    {
+        if (cloudDownMoveIn)
+        {
+            cloud3.transform.Translate(Vector3.forward * cloudSpeed * Time.deltaTime);
+        }
+
+        if (cloud3.transform.position.x <= 1.38f)
+        {
+            cloudDownMoveIn = false;
+        }
+    }
+    public void moveRightCloudBack()
+    {
+        if (cloudRightMoveIn)
+        {
+            cloud2.transform.Translate(Vector3.forward * cloudSpeed * Time.deltaTime);
+        }
+
+        if (cloud2.transform.position.z <= 1)
+        {
+            cloudRightMoveIn = false;
+        }
+    }
+    public void moveLeftCloudBack()
+    {
+        if (cloudLeftMoveIn)
+        {
+            cloud1.transform.Translate(Vector3.forward * cloudSpeed * Time.deltaTime);
+        }
+
+        if (cloud1.transform.position.z >= -1.32)
+        {
+            cloudLeftMoveIn = false;
+        }
+    }
+
+    // pause menu
     void Resume()
     {
         pausePannel.SetActive(false);
         isShowing = true;
         gameIsPaused = false;
     }
+    // pause menu
     void Pause()
     {
         pausePannel.SetActive(true);
         isShowing = false;
         gameIsPaused = true;
     }
+
+    // buttons/ panel
     IEnumerator showUi()
     {
         yield return new WaitForSeconds(2f);
         isShowing = true;
-    }
 
-    void moveCamera()
+    }
+    IEnumerator NextScene()
     {
+        yield return new WaitForSeconds(4f);
+        Debug.Log("Here");
 
-        speed++;
-        camera.transform.position = Vector3.Lerp(startPoint.position, endPoint.position, speed * Time.deltaTime);
     }
 
-    void moveClouds()
+    void moveCameraBack()
     {
-        if(move_Clouds)
-        {
-            cloud1.transform.Translate(Vector3.right * cloudSpeed * Time.deltaTime);
-            cloud2.transform.Translate(Vector3.right * cloudSpeed * Time.deltaTime);
-            cloud3.transform.Translate(Vector3.right * cloudSpeed * Time.deltaTime);
-            cloud4.transform.Translate(Vector3.right * cloudSpeed * Time.deltaTime);
-        }
-
-    }
-    IEnumerator cloudDelay()
-    {
-        yield return new WaitForSeconds(1f);
-        moveClouds();
+        cameraSpeedMovingAway++;
+        camera.transform.position = Vector3.Lerp(startPoint.position, endPoint.position, cameraSpeedMovingAway * Time.deltaTime);     
     }
 
-    IEnumerator cloudHidden()
+    public void moveCameraForward()
     {
-        yield return new WaitForSeconds(5f);
-        move_Clouds = false;
-        cloud1.SetActive(false);
-        cloud2.SetActive(false);
-        cloud3.SetActive(false);
-        cloud4.SetActive(false);
+        cameraSpeedMovingIn++;
+        camera.transform.position = Vector3.Lerp(endPoint.position, startPoint.position, cameraSpeedMovingIn * Time.deltaTime);
     }
+
 }

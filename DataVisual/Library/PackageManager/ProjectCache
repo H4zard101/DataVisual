@@ -3071,7 +3071,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: 'This package defines common components used by multiple Game Service
     packages.
 
@@ -3097,10 +3097,12 @@ m_ResolvedPackages:
     - 1.4.2
     - 1.4.3
     - 1.5.2
+    - 1.6.0
     compatible:
     - 1.4.2
     - 1.4.3
     - 1.5.2
+    - 1.6.0
     verified: 1.4.3
   dependencies:
   - name: com.unity.modules.unitywebrequest
@@ -3124,7 +3126,7 @@ m_ResolvedPackages:
     scopes: []
     isDefault: 1
     capabilities: 7
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637919618520000000
   documentationUrl: 
