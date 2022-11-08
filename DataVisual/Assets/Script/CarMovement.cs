@@ -1,65 +1,66 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarMovement : MonoBehaviour
 {
 
-    // Top Speed
-    public float Speed;
-    public float Literacy;
-    public bool isMoving;
-
-    // Money For Country
-    public float AverageMonthlyIncome;
-    public float CostPerLiter;
-    public float refuelCost;
-    // Fuel Limit
-    public float FuelConsumption;
-    public float FuelTotal;
 
     public MoveCamera moveCamera;
 
     public GameObject car;
     public Rigidbody rb;
+    public Button confirmSelection;
+
+
+    private float _Speed;
+    public float _Wage;
+    public float _Consuption;
+
+    public bool isMoving;
+
+    public float literacy;
+
+    public bool isSelectionConfirmed;
 
     private void Start()
     {
-        moveCamera = FindObjectOfType<MoveCamera>();
-
-        Speed = (Literacy / 10);     
+        _Speed = literacy / 10;
         isMoving = true;
+        isSelectionConfirmed = false;
+
     }
     // Update is called once per frame
     void Update()
     {
-        // when the transition is over then move the cars
-            // MOVE THE CAR
-            FuelTotal -= FuelConsumption * Time.deltaTime;
+        if(isSelectionConfirmed)
+        {
+            _Wage -= _Consuption * Time.deltaTime;
 
-            if (FuelTotal <= 0)
+
+            if (_Wage <= 0)
             {
-                isMoving = false;              
+                isMoving = false;
+            }
+            else
+            {
+                isMoving = true;
             }
 
-            else if (FuelTotal >= 0)
+            if (isMoving)
             {
-                isMoving = true;              
+                rb.AddForce(-Vector3.forward * _Speed * Time.deltaTime);
             }
-      
-        if (isMoving)
-        {
-            rb.AddForce(-Vector3.forward * Speed * Time.deltaTime);
+            else
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
         }
-        else
-        {
-            Refuel();
-        }
+
+
+  
 
     }
 
-    void Refuel()
-    {
-        refuelCost = CostPerLiter * 80;
-        FuelTotal = CostPerLiter * 80;
-        AverageMonthlyIncome -= refuelCost;
-    }
+
 }
