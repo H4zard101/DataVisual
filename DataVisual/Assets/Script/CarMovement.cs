@@ -7,7 +7,7 @@ public class CarMovement : MonoBehaviour
 
     public MoveCamera moveCamera;
 
-    public GameObject car;
+   // public GameObject car;
     public Rigidbody rb;
     public Button confirmSelection;
 
@@ -22,18 +22,22 @@ public class CarMovement : MonoBehaviour
 
     public bool isSelectionConfirmed;
 
+
     private void Start()
     {
         _Speed = literacy / 10;
         isMoving = true;
         isSelectionConfirmed = false;
 
+
     }
     // Update is called once per frame
     void Update()
     {
-        if(isSelectionConfirmed)
+        if (isSelectionConfirmed)
         {
+
+
             _Wage -= _Consuption * Time.deltaTime;
 
 
@@ -48,6 +52,7 @@ public class CarMovement : MonoBehaviour
 
             if (isMoving)
             {
+
                 rb.AddForce(-Vector3.forward * _Speed * Time.deltaTime);
             }
             else
@@ -55,8 +60,8 @@ public class CarMovement : MonoBehaviour
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
             }
-        }
 
+        }
 
   
 
