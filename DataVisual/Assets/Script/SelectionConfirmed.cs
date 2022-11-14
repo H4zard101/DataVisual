@@ -5,15 +5,19 @@ using UnityEngine;
 public class SelectionConfirmed : MonoBehaviour
 {
 
-    public CarMovement carMovement;
+    public CarMovement[] carMovement;
 
 
     public void  Start()
     {
-        carMovement = FindObjectOfType<CarMovement>();
+        carMovement = FindObjectsOfType<CarMovement>();
     }
     public void buttonClick()
     {
-        carMovement.isSelectionConfirmed = true;
+        for (int i = 0; i < carMovement.Length; i++)
+        {
+            carMovement[i].isSelectionConfirmed = true;
+        }
+       
     }
 }
