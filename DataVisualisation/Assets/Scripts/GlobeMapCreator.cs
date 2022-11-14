@@ -12,6 +12,7 @@ using Dynamitey;
 using UnityEngine.UI;
 using SFB;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GlobeMapCreator : Generator
 {
@@ -108,6 +109,10 @@ public class GlobeMapCreator : Generator
         {
             currentCountrySelectCount = 0;
         }
+        if (currentCountrySelectCount < 4)
+        {
+            continueButton.SetActive(false);
+        }
 
         for (int i = 1; i < countryGameObject.Length; i++)
         {
@@ -120,6 +125,11 @@ public class GlobeMapCreator : Generator
         selectedCountriesMesh.Remove(country);
     }
 
+
+    public delegate void OnAllDataCollected(List<SelectedCountry> allDatas);
+    public static event OnAllDataCollected onAllDataCollected;
+
+    public GameObject canvas;
     public void FinaliseDataAndMoveToCarScene()
     {
         List<SelectedCountry> allDatas = new List<SelectedCountry>();
@@ -133,6 +143,9 @@ public class GlobeMapCreator : Generator
             selectedCountry.literacyValue = selectedCountriesMesh[i].GetComponent<GenerateRandomPoint>().literacyValue;
             allDatas.Add(selectedCountry);
         }
+        onAllDataCollected?.Invoke(allDatas);
+        DestroyImmediate(canvas);
+        SceneManager.LoadScene("VisualRepresentation");
     }
 
     private void GlobeMapCreator_onCountrySelect(GameObject country)
@@ -140,7 +153,7 @@ public class GlobeMapCreator : Generator
         if (currentCountrySelectCount == 4) { continueButton.SetActive(true); return; }
 
         currentCountrySelectCount += 1;
-        if (currentCountrySelectCount > 4) { continueButton.SetActive(true); currentCountrySelectCount = 4; }
+        if (currentCountrySelectCount >= 4) { continueButton.SetActive(true); currentCountrySelectCount = 4; }
 
         countryGameObject[currentCountrySelectCount].SetActive(true);
         countryGameObject[currentCountrySelectCount].GetComponent<TMPro.TextMeshProUGUI>().text = country.name;
