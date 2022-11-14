@@ -24,6 +24,9 @@ public class GenerateRandomPoint : MonoBehaviour
 
 
     public float literacyValue, wageValue, energyValue;
+    public Texture2D flag;
+
+    public string alpha2Code;
 
     private IEnumerator Start()
     {

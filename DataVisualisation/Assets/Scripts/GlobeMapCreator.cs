@@ -141,6 +141,7 @@ public class GlobeMapCreator : Generator
             selectedCountry.enerygyValue = selectedCountriesMesh[i].GetComponent<GenerateRandomPoint>().energyValue;
             selectedCountry.wageValue = selectedCountriesMesh[i].GetComponent<GenerateRandomPoint>().wageValue;
             selectedCountry.literacyValue = selectedCountriesMesh[i].GetComponent<GenerateRandomPoint>().literacyValue;
+            selectedCountry.countryCode = selectedCountriesMesh[i].name.Split(",")[1];
             allDatas.Add(selectedCountry);
         }
         onAllDataCollected?.Invoke(allDatas);
@@ -436,9 +437,11 @@ public class GlobeMapCreator : Generator
         StartCoroutine(Generate());
     }
     public List<GameObject> allCountries;
+    public List<string> countryCodesForFlags;
     IEnumerator Generate()
     {
         allCountries = new List<GameObject>();
+        countryCodesForFlags = new List<string>();
         // Create ocean mesh
         oceanMeshData = IcoSphere.Generate(oceanResolution, radius);
         MeshHelper.CreateRendererObject("Ocean", oceanMeshData, oceanMaterial, transform);
@@ -470,9 +473,11 @@ public class GlobeMapCreator : Generator
         {
             SimpleMeshData countryMeshData = GenerateCountry(countries[i]);
             string countryName = countries[i].GetPreferredDisplayName();
-            countryMeshData.name = countryName;
+            Debug.Log(countries[i].alpha2Code);
+            countryMeshData.name = countryName + "," + countries[i].alpha3Code;
             RenderObject obj = MeshHelper.CreateRendererObject(countryName, countryMeshData, countryMaterial, transform);
             allCountries.Add(obj.gameObject);
+            countryCodesForFlags.Add(countries[i].alpha3Code);
             allCountriesMeshData[i] = countryMeshData;
             yield return null;
         }
@@ -871,6 +876,7 @@ public class LoadedCountryData
 
 public class SelectedCountry
 {
+    public string countryCode;
     public string countryName;
     public float enerygyValue;
     public float wageValue;
