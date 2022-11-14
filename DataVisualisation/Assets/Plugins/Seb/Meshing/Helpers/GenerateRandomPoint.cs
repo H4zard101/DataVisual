@@ -22,6 +22,9 @@ public class GenerateRandomPoint : MonoBehaviour
     private Color energyConsumptionColor = Color.yellow;
     private Color averageWageColor = Color.blue;
 
+
+    public float literacyValue, wageValue, energyValue;
+
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(1f);
@@ -31,6 +34,7 @@ public class GenerateRandomPoint : MonoBehaviour
     public int currentValue = 0;
     public string currentYear = "";
     public string dataType = "";
+
     public void SetValues(GameObject _particleSystemPrefab, Transform _particlesParent)
     {
         particleSystemPrefab = _particleSystemPrefab;
