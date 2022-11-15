@@ -149,7 +149,8 @@ public class GlobeMapCreator : Generator
             allDatas.Add(selectedCountry);
         }
         onAllDataCollected?.Invoke(allDatas);
-        DestroyImmediate(canvas);
+        //DestroyImmediate(canvas);
+        canvas.SetActive(false);
     }
     IEnumerator TriggerTrackScene()
     {
