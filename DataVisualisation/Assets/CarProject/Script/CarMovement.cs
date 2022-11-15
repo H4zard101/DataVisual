@@ -28,8 +28,7 @@ public class CarMovement : MonoBehaviour
         _Speed = literacy / 10;
         isMoving = true;
         isSelectionConfirmed = false;
-
-
+        _Wage = _Wage * 12;
     }
     // Update is called once per frame
     void Update()

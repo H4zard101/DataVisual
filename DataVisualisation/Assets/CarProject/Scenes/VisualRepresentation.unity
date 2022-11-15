@@ -198,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 4370951913967234905, guid: 286e06228ab55024f84bfacc8a25092a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eb42f3e4b067f654ea3057cfc4f9f980, type: 2}
+      objectReference: {fileID: 2100000, guid: 2b1cb384580f6614fbe59c3cb4ebe13d, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 286e06228ab55024f84bfacc8a25092a, type: 3}
@@ -1629,7 +1629,7 @@ PrefabInstance:
     - target: {fileID: 4370951913967234905, guid: 286e06228ab55024f84bfacc8a25092a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eb42f3e4b067f654ea3057cfc4f9f980, type: 2}
+      objectReference: {fileID: 2100000, guid: 1daaae6b8eee7ff418e8f69627b01f12, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 286e06228ab55024f84bfacc8a25092a, type: 3}
@@ -1763,7 +1763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.1185, y: 26.460411}
+  m_AnchoredPosition: {x: -51.5, y: 26.460411}
   m_SizeDelta: {x: 45.6163, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283320419
@@ -2601,10 +2601,10 @@ MonoBehaviour:
   moveCamera: {fileID: 0}
   rb: {fileID: 442030568}
   confirmSelection: {fileID: 1038970292}
-  _Wage: 6000
-  _Consuption: 100
+  _Wage: 1612.0725
+  _Consuption: 4288.383
   isMoving: 0
-  literacy: 99
+  literacy: 99.2
   isSelectionConfirmed: 1
 --- !u!54 &442030568
 Rigidbody:
@@ -2749,10 +2749,10 @@ MonoBehaviour:
   moveCamera: {fileID: 0}
   rb: {fileID: 675159679}
   confirmSelection: {fileID: 1038970292}
-  _Wage: 6000
-  _Consuption: 100
+  _Wage: 3236.198
+  _Consuption: 3733
   isMoving: 0
-  literacy: 99
+  literacy: 94.30425
   isSelectionConfirmed: 1
 --- !u!65 &675159678
 BoxCollider:
@@ -2987,7 +2987,7 @@ PrefabInstance:
     - target: {fileID: 4370951913967234905, guid: 286e06228ab55024f84bfacc8a25092a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eb42f3e4b067f654ea3057cfc4f9f980, type: 2}
+      objectReference: {fileID: 2100000, guid: 86a3677665a60bc47af6daaaa75bb8b0, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 286e06228ab55024f84bfacc8a25092a, type: 3}
@@ -3422,10 +3422,10 @@ MonoBehaviour:
   moveCamera: {fileID: 0}
   rb: {fileID: 753994817}
   confirmSelection: {fileID: 1038970292}
-  _Wage: 6000
-  _Consuption: 100
+  _Wage: 291.86136
+  _Consuption: 296.05194
   isMoving: 0
-  literacy: 99
+  literacy: 25
   isSelectionConfirmed: 1
 --- !u!65 &753994816
 BoxCollider:
@@ -3495,7 +3495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.1185, y: -6}
+  m_AnchoredPosition: {x: -35.6, y: -6}
   m_SizeDelta: {x: 45.6163, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &754795098
@@ -3858,10 +3858,10 @@ MonoBehaviour:
   moveCamera: {fileID: 0}
   rb: {fileID: 919150313}
   confirmSelection: {fileID: 1038970292}
-  _Wage: 6000
-  _Consuption: 100
+  _Wage: 150.14418
+  _Consuption: 267.34756
   isMoving: 0
-  literacy: 99
+  literacy: 59.34
   isSelectionConfirmed: 1
 --- !u!65 &919150312
 BoxCollider:
@@ -4202,7 +4202,7 @@ PrefabInstance:
     - target: {fileID: 4370951913967234905, guid: 286e06228ab55024f84bfacc8a25092a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eb42f3e4b067f654ea3057cfc4f9f980, type: 2}
+      objectReference: {fileID: 2100000, guid: 90786704d69b2ea4faf6dbec38bb0575, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 286e06228ab55024f84bfacc8a25092a, type: 3}
@@ -4807,8 +4807,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79.1586, y: 24.9}
-  m_SizeDelta: {x: 90.8828, y: 22.7207}
+  m_AnchoredPosition: {x: -51.5995, y: 24.9}
+  m_SizeDelta: {x: 146.0011, y: 22.7207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1128960945
 MonoBehaviour:
@@ -4830,7 +4830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Country 2:'
+  m_text: 'India :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5481,8 +5481,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79.1586, y: -7.5604057}
-  m_SizeDelta: {x: 90.8828, y: 22.7207}
+  m_AnchoredPosition: {x: -51.5995, y: -7.5604057}
+  m_SizeDelta: {x: 146.0011, y: 22.7207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277377706
 MonoBehaviour:
@@ -5504,7 +5504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Country 3:'
+  m_text: 'Russia :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5952,7 +5952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.1185, y: -34.639595}
+  m_AnchoredPosition: {x: 3, y: -34.639595}
   m_SizeDelta: {x: 45.6163, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483428841
@@ -6504,8 +6504,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79.1586, y: -36.200005}
-  m_SizeDelta: {x: 90.8828, y: 22.7207}
+  m_AnchoredPosition: {x: -51.5995, y: -36.200005}
+  m_SizeDelta: {x: 146.0011, y: 22.7207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549552999
 MonoBehaviour:
@@ -6527,7 +6527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Country 4:'
+  m_text: 'Afghanistan :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6752,8 +6752,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79.1586, y: 53.5396}
-  m_SizeDelta: {x: 90.8828, y: 22.7207}
+  m_AnchoredPosition: {x: -51.5995, y: 53.5396}
+  m_SizeDelta: {x: 146.0011, y: 22.7207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569384886
 MonoBehaviour:
@@ -6775,7 +6775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Country 1:'
+  m_text: 'United Kingdom :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8024,7 +8024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.1185, y: 55.1}
+  m_AnchoredPosition: {x: 36.6, y: 55.1}
   m_SizeDelta: {x: 45.6163, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753557841
