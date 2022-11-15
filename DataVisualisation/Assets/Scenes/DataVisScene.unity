@@ -679,6 +679,7 @@ MonoBehaviour:
   countryDropDown3: {fileID: 2127053493}
   countryDropDown4: {fileID: 88336288}
   allCountries: []
+  countryCodesForFlags: []
 --- !u!4 &130698004
 Transform:
   m_ObjectHideFlags: 0
@@ -11722,6 +11723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415fdac67e649b4449382c2d1f1f878c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flags: []
 --- !u!1 &1841923990
 GameObject:
   m_ObjectHideFlags: 0

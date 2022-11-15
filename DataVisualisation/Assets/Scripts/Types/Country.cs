@@ -20,7 +20,6 @@ public class Country
 	// sorted by population (highest to lowest, with caveat: capital cities appear first)
 	public City[] cities;
 	public Shape shape;
-
 	public string GetPreferredDisplayName(int maxDesiredLength = int.MaxValue, bool debug = false)
 	{
 		const int abbreviatedIndex = 4;
