@@ -25,7 +25,7 @@ public class CarMovement : MonoBehaviour
 
     private void Start()
     {
-        _Speed = literacy / 10;
+        _Speed = literacy / 5;
         isMoving = true;
         isSelectionConfirmed = false;
         _Wage = _Wage * 12;
