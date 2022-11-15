@@ -59,8 +59,8 @@ public class GlobeMapCreator : Generator
     public Slider slider = null;
     public TMPro.TextMeshProUGUI literacyYear;
 
-    //string[] a = new string[] { "_1960", "_1961", "_1962", "_1963", "_1964", "_1965", "_1966", "_1967", "_1968", "_1969", "_1970", "_1971", "_1972", "_1973", "_1974", "_1975", "_1976", "_1977", "_1978", "_1979", "_1980", "_1981", "_1982", "_1983", "_1984", "_1985", "_1986", "_1987", "_1988", "_1989", "_1990", "_1991", "_1992", "_1993", "_1994", "_1995", "_1996", "_1997", "_1998", "_1999", "_2000", "_2001", "_2002", "_2003", "_2004", "_2005", "_2006", "_2007", "_2008", "_2009", "_2010", "_2011", "_2012", "_2013", "_2014", "_2015", "_2016", "_2017", "_2018", "_2019", "_2020", "_2021" };
-    string[] a = new string[] { "_1971", "_1972", "_1973", "_1974", "_1975", "_1976", "_1977", "_1978", "_1979", "_1980", "_1981", "_1982", "_1983", "_1984", "_1985", "_1986", "_1987", "_1988", "_1989", "_1990", "_1991", "_1992", "_1993", "_1994", "_1995", "_1996", "_1997", "_1998", "_1999", "_2000", "_2001", "_2002", "_2003", "_2004", "_2005", "_2006", "_2007", "_2008", "_2009", "_2010", "_2011", "_2012", "_2013", "_2014", "_2015", "_2016", "_2017", "_2018", "_2019", "_2020", "_2021" };
+    string[] a = new string[] { "_1960", "_1961", "_1962", "_1963", "_1964", "_1965", "_1966", "_1967", "_1968", "_1969", "_1970", "_1971", "_1972", "_1973", "_1974", "_1975", "_1976", "_1977", "_1978", "_1979", "_1980", "_1981", "_1982", "_1983", "_1984", "_1985", "_1986", "_1987", "_1988", "_1989", "_1990", "_1991", "_1992", "_1993", "_1994", "_1995", "_1996", "_1997", "_1998", "_1999", "_2000", "_2001", "_2002", "_2003", "_2004", "_2005", "_2006", "_2007", "_2008", "_2009", "_2010", "_2011", "_2012", "_2013", "_2014", "_2015", "_2016", "_2017", "_2018", "_2019", "_2020", "_2021" };
+    //string[] a = new string[] { "_1971", "_1972", "_1973", "_1974", "_1975", "_1976", "_1977", "_1978", "_1979", "_1980", "_1981", "_1982", "_1983", "_1984", "_1985", "_1986", "_1987", "_1988", "_1989", "_1990", "_1991", "_1992", "_1993", "_1994", "_1995", "_1996", "_1997", "_1998", "_1999", "_2000", "_2001", "_2002", "_2003", "_2004", "_2005", "_2006", "_2007", "_2008", "_2009", "_2010", "_2011", "_2012", "_2013", "_2014", "_2015", "_2016", "_2017", "_2018", "_2019", "_2020", "_2021" };
 
     List<string> yearList;
     public GameObject loadingPanel;
@@ -146,7 +146,7 @@ public class GlobeMapCreator : Generator
             selectedCountry.enerygyValue = selectedCountriesMesh[i].GetComponent<GenerateRandomPoint>().energyValue;
             selectedCountry.wageValue = selectedCountriesMesh[i].GetComponent<GenerateRandomPoint>().wageValue;
             selectedCountry.literacyValue = selectedCountriesMesh[i].GetComponent<GenerateRandomPoint>().literacyValue;
-            selectedCountry.countryCode = selectedCountriesMesh[i].name.Split(",")[1];
+            //selectedCountry.countryCode = selectedCountriesMesh[i].name.Split(",")[1];
             allDatas.Add(selectedCountry);
         }
         onAllDataCollected?.Invoke(allDatas);
@@ -483,7 +483,7 @@ public class GlobeMapCreator : Generator
             SimpleMeshData countryMeshData = GenerateCountry(countries[i]);
             string countryName = countries[i].GetPreferredDisplayName();
             Debug.Log(countries[i].alpha2Code);
-            countryMeshData.name = countryName + "," + countries[i].alpha3Code;
+            countryMeshData.name = countryName;// + "," + countries[i].alpha3Code;
             RenderObject obj = MeshHelper.CreateRendererObject(countryName, countryMeshData, countryMaterial, transform);
             allCountries.Add(obj.gameObject);
             countryCodesForFlags.Add(countries[i].alpha3Code);
