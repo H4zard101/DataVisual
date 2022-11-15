@@ -81,6 +81,8 @@ public class GlobeMapCreator : Generator
     public List<GameObject> selectedCountriesMesh = new List<GameObject>();
 
     public GameObject continueButton;
+
+    public CameraStartZoom cameraStartZoom;
     private void Awake()
     {
         instance = this;
@@ -93,6 +95,8 @@ public class GlobeMapCreator : Generator
         showLineChartButton.SetActive(false);
         slider.onValueChanged.AddListener(delegate { SliderValueChangedCallback(); });
         yearList = a.ToList();
+
+        cameraStartZoom = FindObjectOfType<CameraStartZoom>();
 
         Load();
     }
@@ -145,9 +149,12 @@ public class GlobeMapCreator : Generator
         }
         onAllDataCollected?.Invoke(allDatas);
         DestroyImmediate(canvas);
+    }
+    IEnumerator TriggerTrackScene()
+    {
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("VisualRepresentation");
     }
-
     private void GlobeMapCreator_onCountrySelect(GameObject country)
     {
         if (currentCountrySelectCount == 4) { continueButton.SetActive(true); return; }
@@ -605,6 +612,14 @@ public class GlobeMapCreator : Generator
         }
     }
 
+    public void Update()
+    {
+        if (cameraStartZoom.isMoving)
+        {
+            Debug.Log("Starting transition");
+            StartCoroutine(TriggerTrackScene());
+        }
+    }
     public List<LoadedCountryData> allCountriesData;
     void LoadAllYears(string fileContents)
     {
